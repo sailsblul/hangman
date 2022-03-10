@@ -39,7 +39,7 @@
             // 
             // imgHang
             // 
-            this.imgHang.Location = new System.Drawing.Point(12, 12);
+            this.imgHang.Location = new System.Drawing.Point(12, 13);
             this.imgHang.Name = "imgHang";
             this.imgHang.Size = new System.Drawing.Size(151, 173);
             this.imgHang.TabIndex = 0;
@@ -48,8 +48,9 @@
             // lstGuessed
             // 
             this.lstGuessed.FormattingEnabled = true;
-            this.lstGuessed.Location = new System.Drawing.Point(169, 38);
+            this.lstGuessed.Location = new System.Drawing.Point(169, 39);
             this.lstGuessed.Name = "lstGuessed";
+            this.lstGuessed.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lstGuessed.Size = new System.Drawing.Size(120, 121);
             this.lstGuessed.TabIndex = 1;
             // 
@@ -57,15 +58,16 @@
             // 
             this.lblWord.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblWord.Location = new System.Drawing.Point(7, 219);
+            this.lblWord.Location = new System.Drawing.Point(12, 215);
             this.lblWord.Name = "lblWord";
-            this.lblWord.Size = new System.Drawing.Size(278, 36);
+            this.lblWord.Size = new System.Drawing.Size(277, 36);
             this.lblWord.TabIndex = 2;
             this.lblWord.Text = "_ _ _ _";
             this.lblWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGuess
             // 
+            this.btnGuess.Enabled = false;
             this.btnGuess.Location = new System.Drawing.Point(216, 166);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(73, 20);
@@ -76,11 +78,14 @@
             // 
             // txtGuess
             // 
+            this.txtGuess.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGuess.Location = new System.Drawing.Point(169, 166);
             this.txtGuess.MaxLength = 1;
             this.txtGuess.Name = "txtGuess";
             this.txtGuess.Size = new System.Drawing.Size(41, 20);
             this.txtGuess.TabIndex = 4;
+            this.txtGuess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtGuess.TextChanged += new System.EventHandler(this.txtGuess_TextChanged);
             // 
             // lblGuessed
             // 
