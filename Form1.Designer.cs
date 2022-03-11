@@ -28,22 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgHang = new System.Windows.Forms.PictureBox();
             this.lstGuessed = new System.Windows.Forms.ListBox();
             this.lblWord = new System.Windows.Forms.Label();
             this.btnGuess = new System.Windows.Forms.Button();
             this.txtGuess = new System.Windows.Forms.TextBox();
             this.lblGuessed = new System.Windows.Forms.Label();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.imgHang = new System.Windows.Forms.PictureBox();
+            this.grpAgain = new System.Windows.Forms.GroupBox();
+            this.btnRandom = new System.Windows.Forms.Button();
+            this.btnCustom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgHang)).BeginInit();
+            this.grpAgain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imgHang
-            // 
-            this.imgHang.Location = new System.Drawing.Point(12, 13);
-            this.imgHang.Name = "imgHang";
-            this.imgHang.Size = new System.Drawing.Size(151, 173);
-            this.imgHang.TabIndex = 0;
-            this.imgHang.TabStop = false;
             // 
             // lstGuessed
             // 
@@ -58,7 +55,7 @@
             // 
             this.lblWord.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblWord.Location = new System.Drawing.Point(12, 215);
+            this.lblWord.Location = new System.Drawing.Point(12, 225);
             this.lblWord.Name = "lblWord";
             this.lblWord.Size = new System.Drawing.Size(277, 36);
             this.lblWord.TabIndex = 2;
@@ -96,12 +93,71 @@
             this.lblGuessed.TabIndex = 5;
             this.lblGuessed.Text = "Letters Guessed:";
             // 
+            // lblEnd
+            // 
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblEnd.Location = new System.Drawing.Point(51, 189);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(53, 17);
+            this.lblEnd.TabIndex = 6;
+            this.lblEnd.Text = "label1";
+            // 
+            // imgHang
+            // 
+            this.imgHang.Image = global::hangman.Properties.Resources.hang;
+            this.imgHang.Location = new System.Drawing.Point(12, 13);
+            this.imgHang.Name = "imgHang";
+            this.imgHang.Size = new System.Drawing.Size(151, 173);
+            this.imgHang.TabIndex = 0;
+            this.imgHang.TabStop = false;
+            // 
+            // grpAgain
+            // 
+            this.grpAgain.Controls.Add(this.btnCustom);
+            this.grpAgain.Controls.Add(this.btnRandom);
+            this.grpAgain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.grpAgain.Location = new System.Drawing.Point(12, 264);
+            this.grpAgain.Name = "grpAgain";
+            this.grpAgain.Size = new System.Drawing.Size(272, 46);
+            this.grpAgain.TabIndex = 7;
+            this.grpAgain.TabStop = false;
+            this.grpAgain.Text = "Play again?";
+            this.grpAgain.Visible = false;
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.btnRandom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRandom.Location = new System.Drawing.Point(6, 15);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(128, 25);
+            this.btnRandom.TabIndex = 0;
+            this.btnRandom.Text = "Random word";
+            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
+            // 
+            // btnCustom
+            // 
+            this.btnCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.btnCustom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCustom.Location = new System.Drawing.Point(139, 15);
+            this.btnCustom.Name = "btnCustom";
+            this.btnCustom.Size = new System.Drawing.Size(127, 25);
+            this.btnCustom.TabIndex = 1;
+            this.btnCustom.Text = "Custom word";
+            this.btnCustom.UseVisualStyleBackColor = true;
+            this.btnCustom.Click += new System.EventHandler(this.btnCustom_Click);
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
-            this.ClientSize = new System.Drawing.Size(297, 279);
+            this.ClientSize = new System.Drawing.Size(297, 313);
+            this.Controls.Add(this.grpAgain);
+            this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblGuessed);
             this.Controls.Add(this.txtGuess);
             this.Controls.Add(this.btnGuess);
@@ -112,6 +168,7 @@
             this.Text = "Hangman";
             this.Load += new System.EventHandler(this.Hangman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgHang)).EndInit();
+            this.grpAgain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,6 +182,10 @@
         private System.Windows.Forms.Button btnGuess;
         private System.Windows.Forms.TextBox txtGuess;
         private System.Windows.Forms.Label lblGuessed;
+        private System.Windows.Forms.Label lblEnd;
+        private System.Windows.Forms.GroupBox grpAgain;
+        private System.Windows.Forms.Button btnCustom;
+        private System.Windows.Forms.Button btnRandom;
     }
 }
 
