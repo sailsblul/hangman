@@ -33,6 +33,10 @@ namespace hangman
             lblEnd.Visible = false;
             txtGuess.Enabled = true;
             guesses.Clear();
+            lstGuessed.SelectionMode = SelectionMode.One;
+            lstGuessed.DataSource = null;
+            lstGuessed.DataSource = guesses;
+            lstGuessed.SelectionMode = SelectionMode.None;
             lstGuessed.DataSource = null;
             lstGuessed.DataSource = guesses;
             imgHang.Image = Properties.Resources.hang;
@@ -125,7 +129,11 @@ namespace hangman
 
         private void btnCustom_Click(object sender, EventArgs e)
         {
-
+            string newWord;
+            frmCustom custom = new frmCustom();
+            custom.ShowDialog();
+            newWord = custom.word;
+            Setup(newWord);
         }
     }
 }
