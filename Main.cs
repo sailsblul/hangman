@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace hangman
 {
     public partial class Hangman : Form
     {
         Random gen = new Random();
-        string[] words = new string[] { "BONGO", "PENGUIN" };
+        string[] words = File.ReadAllLines(@"wordlist.txt");
         string word;
         List<string> guesses = new List<string>();
         int misses;
@@ -24,7 +25,7 @@ namespace hangman
 
         private void Hangman_Load(object sender, EventArgs e)
         {
-            Setup(words[gen.Next(words.Length)]);
+            Setup(words[gen.Next(words.Length)].ToUpper());
         }
 
         public void Setup(string input)
@@ -45,6 +46,7 @@ namespace hangman
             lblWord.Text = "_";
             for (int i = 1; i < word.Length; i++)
                 lblWord.Text += " _";
+            //lblWord.Font = 
         }
 
         private void btnGuess_Click(object sender, EventArgs e)
@@ -124,7 +126,7 @@ namespace hangman
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            Setup(words[gen.Next(words.Length)]);
+            Setup(words[gen.Next(words.Length)].ToUpper());
         }
 
         private void btnCustom_Click(object sender, EventArgs e)

@@ -36,8 +36,8 @@
             this.lblEnd = new System.Windows.Forms.Label();
             this.imgHang = new System.Windows.Forms.PictureBox();
             this.grpAgain = new System.Windows.Forms.GroupBox();
-            this.btnRandom = new System.Windows.Forms.Button();
             this.btnCustom = new System.Windows.Forms.Button();
+            this.btnRandom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgHang)).BeginInit();
             this.grpAgain.SuspendLayout();
             this.SuspendLayout();
@@ -55,9 +55,9 @@
             // 
             this.lblWord.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblWord.Location = new System.Drawing.Point(12, 225);
+            this.lblWord.Location = new System.Drawing.Point(0, 225);
             this.lblWord.Name = "lblWord";
-            this.lblWord.Size = new System.Drawing.Size(277, 36);
+            this.lblWord.Size = new System.Drawing.Size(298, 36);
             this.lblWord.TabIndex = 2;
             this.lblWord.Text = "_ _ _ _";
             this.lblWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,18 +126,6 @@
             this.grpAgain.Text = "Play again?";
             this.grpAgain.Visible = false;
             // 
-            // btnRandom
-            // 
-            this.btnRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
-            this.btnRandom.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRandom.Location = new System.Drawing.Point(6, 15);
-            this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(128, 25);
-            this.btnRandom.TabIndex = 0;
-            this.btnRandom.Text = "Random word";
-            this.btnRandom.UseVisualStyleBackColor = true;
-            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
-            // 
             // btnCustom
             // 
             this.btnCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
@@ -149,6 +137,18 @@
             this.btnCustom.Text = "Custom word";
             this.btnCustom.UseVisualStyleBackColor = true;
             this.btnCustom.Click += new System.EventHandler(this.btnCustom_Click);
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.btnRandom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRandom.Location = new System.Drawing.Point(6, 15);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(128, 25);
+            this.btnRandom.TabIndex = 0;
+            this.btnRandom.Text = "Random word";
+            this.btnRandom.UseVisualStyleBackColor = true;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // Hangman
             // 
