@@ -18,6 +18,7 @@ namespace hangman
         string word;
         List<string> guesses = new List<string>();
         int misses;
+        bool fromList = true;
         public Hangman()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace hangman
 
         public void Setup(string input)
         {
+            btnRemove.Visible = true;
             grpAgain.Visible = false;
             lblEnd.Visible = false;
             txtGuess.Enabled = true;
@@ -43,10 +45,10 @@ namespace hangman
             imgHang.Image = Properties.Resources.hang;
             misses = 0;
             word = input;
+            lblWord.Font = new Font(lblWord.Font.FontFamily, 18, lblWord.Font.Style);
             lblWord.Text = "_";
             for (int i = 1; i < word.Length; i++)
                 lblWord.Text += " _";
-            //lblWord.Font = 
         }
 
         private void btnGuess_Click(object sender, EventArgs e)
@@ -122,10 +124,13 @@ namespace hangman
             {
                 lblEnd.Text = $"You lose! \nThe word was {word}";
             }
+            if (fromList)
+                btnRemove.Visible = true;
         }
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
+            fromList = true;
             Setup(words[gen.Next(words.Length)].ToUpper());
         }
 
@@ -134,8 +139,23 @@ namespace hangman
             string newWord;
             frmCustom custom = new frmCustom();
             custom.ShowDialog();
-            newWord = custom.word;
+            newWord = custom.word.ToUpper();
+            fromList = false;
             Setup(newWord);
+        }
+
+        private void lblWord_SizeChanged(object sender, EventArgs e)
+        {
+            lblWord.Left = 157 - (lblWord.Width / 2);
+            if (lblWord.Left < 7)
+            {
+                lblWord.Font = new Font(lblWord.Font.FontFamily, lblWord.Font.Size - 1, lblWord.Font.Style);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

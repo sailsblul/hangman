@@ -38,6 +38,7 @@
             this.grpAgain = new System.Windows.Forms.GroupBox();
             this.btnCustom = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgHang)).BeginInit();
             this.grpAgain.SuspendLayout();
             this.SuspendLayout();
@@ -53,14 +54,15 @@
             // 
             // lblWord
             // 
+            this.lblWord.AutoSize = true;
             this.lblWord.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblWord.Location = new System.Drawing.Point(0, 225);
+            this.lblWord.Location = new System.Drawing.Point(102, 225);
             this.lblWord.Name = "lblWord";
-            this.lblWord.Size = new System.Drawing.Size(298, 36);
+            this.lblWord.Size = new System.Drawing.Size(92, 30);
             this.lblWord.TabIndex = 2;
             this.lblWord.Text = "_ _ _ _";
-            this.lblWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWord.SizeChanged += new System.EventHandler(this.lblWord_SizeChanged);
             // 
             // btnGuess
             // 
@@ -87,6 +89,7 @@
             // lblGuessed
             // 
             this.lblGuessed.AutoSize = true;
+            this.lblGuessed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblGuessed.Location = new System.Drawing.Point(187, 12);
             this.lblGuessed.Name = "lblGuessed";
             this.lblGuessed.Size = new System.Drawing.Size(87, 13);
@@ -150,12 +153,24 @@
             this.btnRandom.UseVisualStyleBackColor = true;
             this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(169, 189);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(120, 23);
+            this.btnRemove.TabIndex = 8;
+            this.btnRemove.Text = "Remove this word";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Visible = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Hangman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.ClientSize = new System.Drawing.Size(297, 313);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.grpAgain);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblGuessed);
@@ -186,6 +201,7 @@
         private System.Windows.Forms.GroupBox grpAgain;
         private System.Windows.Forms.Button btnCustom;
         private System.Windows.Forms.Button btnRandom;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 

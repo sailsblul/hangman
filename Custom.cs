@@ -25,6 +25,10 @@ namespace hangman
                 if (Char.IsLetter(i))
                     word += i;
             }
+            if (chkAdd.Checked)
+            {
+
+            }
             Dispose();
         }
     }
