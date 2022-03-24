@@ -14,11 +14,10 @@ namespace hangman
     public partial class Hangman : Form
     {
         Random gen = new Random();
-        string[] words = File.ReadAllLines(@"wordlist.txt");
+        public static List<string> words = File.ReadAllLines(@"wordlist.txt").ToList();
         string word;
         List<string> guesses = new List<string>();
         int misses;
-        bool fromList = true;
         public Hangman()
         {
             InitializeComponent();
@@ -26,12 +25,12 @@ namespace hangman
 
         private void Hangman_Load(object sender, EventArgs e)
         {
-            Setup(words[gen.Next(words.Length)].ToUpper());
+            Setup(words[gen.Next(words.Count)].ToUpper());
         }
 
         public void Setup(string input)
         {
-            btnRemove.Visible = true;
+            btnRemove.Visible = false;
             grpAgain.Visible = false;
             lblEnd.Visible = false;
             txtGuess.Enabled = true;
@@ -124,14 +123,13 @@ namespace hangman
             {
                 lblEnd.Text = $"You lose! \nThe word was {word}";
             }
-            if (fromList)
+            if (words.Contains(word))
                 btnRemove.Visible = true;
         }
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            fromList = true;
-            Setup(words[gen.Next(words.Length)].ToUpper());
+            Setup(words[gen.Next(words.Count)].ToUpper());
         }
 
         private void btnCustom_Click(object sender, EventArgs e)
@@ -140,13 +138,12 @@ namespace hangman
             frmCustom custom = new frmCustom();
             custom.ShowDialog();
             newWord = custom.word.ToUpper();
-            fromList = false;
             Setup(newWord);
         }
 
         private void lblWord_SizeChanged(object sender, EventArgs e)
         {
-            lblWord.Left = 157 - (lblWord.Width / 2);
+            lblWord.Left = (313 - lblWord.Width) / 2;
             if (lblWord.Left < 7)
             {
                 lblWord.Font = new Font(lblWord.Font.FontFamily, lblWord.Font.Size - 1, lblWord.Font.Style);
@@ -155,7 +152,12 @@ namespace hangman
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            words.Remove(word);
+        }
 
+        private void Hangman_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            File.WriteAllLines(@"wordlist.txt", words);
         }
     }
 }

@@ -54,14 +54,17 @@
             // 
             // lblWord
             // 
+            this.lblWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblWord.AutoSize = true;
             this.lblWord.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblWord.Location = new System.Drawing.Point(102, 225);
+            this.lblWord.Location = new System.Drawing.Point(100, 231);
+            this.lblWord.Margin = new System.Windows.Forms.Padding(0);
             this.lblWord.Name = "lblWord";
             this.lblWord.Size = new System.Drawing.Size(92, 30);
             this.lblWord.TabIndex = 2;
             this.lblWord.Text = "_ _ _ _";
+            this.lblWord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWord.SizeChanged += new System.EventHandler(this.lblWord_SizeChanged);
             // 
             // btnGuess
@@ -101,11 +104,12 @@
             this.lblEnd.AutoSize = true;
             this.lblEnd.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEnd.Location = new System.Drawing.Point(51, 189);
+            this.lblEnd.Location = new System.Drawing.Point(12, 189);
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(53, 17);
             this.lblEnd.TabIndex = 6;
             this.lblEnd.Text = "label1";
+            this.lblEnd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // imgHang
             // 
@@ -181,6 +185,7 @@
             this.Controls.Add(this.imgHang);
             this.Name = "Hangman";
             this.Text = "Hangman";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Hangman_FormClosed);
             this.Load += new System.EventHandler(this.Hangman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgHang)).EndInit();
             this.grpAgain.ResumeLayout(false);

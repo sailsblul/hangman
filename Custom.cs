@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace hangman
 {
@@ -27,7 +28,7 @@ namespace hangman
             }
             if (chkAdd.Checked)
             {
-
+                Hangman.words.Append(word);
             }
             Dispose();
         }
