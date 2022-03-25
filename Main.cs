@@ -14,7 +14,7 @@ namespace hangman
     public partial class Hangman : Form
     {
         Random gen = new Random();
-        public static List<string> words = File.ReadAllLines(@"wordlist.txt").ToList();
+        List<string> words = File.ReadAllLines(@"wordlist.txt").ToList();
         string word;
         List<string> guesses = new List<string>();
         int misses;
@@ -25,7 +25,7 @@ namespace hangman
 
         private void Hangman_Load(object sender, EventArgs e)
         {
-            Setup(words[gen.Next(words.Count)].ToUpper());
+            Setup(words[gen.Next(words.Count)]);
         }
 
         public void Setup(string input)
@@ -44,8 +44,8 @@ namespace hangman
             imgHang.Image = Properties.Resources.hang;
             misses = 0;
             word = input;
-            lblWord.Font = new Font(lblWord.Font.FontFamily, 18, lblWord.Font.Style);
             lblWord.Text = "_";
+            lblWord.Font = new Font(lblWord.Font.FontFamily, 16, lblWord.Font.Style);
             for (int i = 1; i < word.Length; i++)
                 lblWord.Text += " _";
         }
@@ -129,7 +129,7 @@ namespace hangman
 
         private void btnRandom_Click(object sender, EventArgs e)
         {
-            Setup(words[gen.Next(words.Count)].ToUpper());
+            Setup(words[gen.Next(words.Count)]);
         }
 
         private void btnCustom_Click(object sender, EventArgs e)
@@ -138,6 +138,8 @@ namespace hangman
             frmCustom custom = new frmCustom();
             custom.ShowDialog();
             newWord = custom.word.ToUpper();
+            if (custom.chkAdd.Checked && !words.Contains(newWord))
+                words.Add(newWord);
             Setup(newWord);
         }
 
@@ -145,14 +147,18 @@ namespace hangman
         {
             lblWord.Left = (313 - lblWord.Width) / 2;
             if (lblWord.Left < 7)
-            {
                 lblWord.Font = new Font(lblWord.Font.FontFamily, lblWord.Font.Size - 1, lblWord.Font.Style);
-            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            words.Remove(word);
+            Removal popup = new Removal(word);
+            popup.ShowDialog();
+            if (popup.confirm)
+            {
+                btnRemove.Visible = false;
+                words.Remove(word);
+            }
         }
 
         private void Hangman_FormClosed(object sender, FormClosedEventArgs e)

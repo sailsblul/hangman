@@ -46,7 +46,7 @@
             // lstGuessed
             // 
             this.lstGuessed.FormattingEnabled = true;
-            this.lstGuessed.Location = new System.Drawing.Point(169, 39);
+            this.lstGuessed.Location = new System.Drawing.Point(169, 28);
             this.lstGuessed.Name = "lstGuessed";
             this.lstGuessed.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lstGuessed.Size = new System.Drawing.Size(120, 121);
@@ -70,7 +70,7 @@
             // btnGuess
             // 
             this.btnGuess.Enabled = false;
-            this.btnGuess.Location = new System.Drawing.Point(216, 166);
+            this.btnGuess.Location = new System.Drawing.Point(216, 155);
             this.btnGuess.Name = "btnGuess";
             this.btnGuess.Size = new System.Drawing.Size(73, 20);
             this.btnGuess.TabIndex = 3;
@@ -81,7 +81,7 @@
             // txtGuess
             // 
             this.txtGuess.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtGuess.Location = new System.Drawing.Point(169, 166);
+            this.txtGuess.Location = new System.Drawing.Point(169, 155);
             this.txtGuess.MaxLength = 1;
             this.txtGuess.Name = "txtGuess";
             this.txtGuess.Size = new System.Drawing.Size(41, 20);
@@ -159,7 +159,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(169, 189);
+            this.btnRemove.Location = new System.Drawing.Point(169, 181);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(120, 23);
             this.btnRemove.TabIndex = 8;

@@ -91,6 +91,6 @@
         private System.Windows.Forms.TextBox txtWord;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblEnter;
-        private System.Windows.Forms.CheckBox chkAdd;
+        public System.Windows.Forms.CheckBox chkAdd;
     }
 }

@@ -26,11 +26,8 @@ namespace hangman
                 if (Char.IsLetter(i))
                     word += i;
             }
-            if (chkAdd.Checked)
-            {
-                Hangman.words.Append(word);
-            }
-            Dispose();
+            if (word.Length > 0)
+                Dispose();
         }
     }
 }
